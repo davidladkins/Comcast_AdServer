@@ -1,0 +1,15 @@
+David L. Adkins
+20160804
+
+If deploying to a remote Tomcat server using maven script please follow instructions found at:
+https://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
+
+If you have access to the tomcat server and have permisions to shut it down and restart you can
+follow the following procedure:
+
+1. Stop Tomcat. $TOMCAT_HOME/bin/bin/shutdown.sh
+2. Delete existing deployment if you have previously deployed your war file in TOMCAT_HOME/webapps
+   then it has been unpacked into webapps/foo/... You must delete this directory and all its contents. 
+   On Unix, this can be done with rm -r $TOMCAT_HOME/webapps/foo
+3. Copy WAR file to TOMCAT_HOME/webapps/.
+4. Start Tomcat. $TOMCAT_HOME/bin/startup.sh
