@@ -47,7 +47,7 @@ public class AdServices
 	//	return campaign;
 	}
 	
-	
+	@GET
 	@Path("/all/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Campaigns getPartnerAds(@PathParam("id") String id) 
