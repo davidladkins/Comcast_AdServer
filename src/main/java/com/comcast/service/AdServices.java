@@ -48,7 +48,7 @@ public class AdServices
 	}
 	
 	
-	@Path("/all/{partner_id}")
+	@Path("/all/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Campaigns getPartnerAds(@PathParam("id") String id) 
 	{
