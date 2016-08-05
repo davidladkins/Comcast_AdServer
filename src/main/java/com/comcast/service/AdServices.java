@@ -37,22 +37,23 @@ public class AdServices
 	@Produces(MediaType.APPLICATION_JSON)
 	public Campaign campaingById(@PathParam("id") String id) throws Exception
 	{
+		if(!campaignDB.containsKey(id))
+			throw new Exception("no active campaings");
 		if(campaignDB.get(id).getLast().getExpired())  
 			throw new Exception("no active campaings");
 		else 
 			return campaignDB.get(id).getLast();
-
-		
-	//	Campaign campaign = new Campaign(id,30,"this is a campaing");
-	//	return campaign;
 	}
 	
 	@GET
 	@Path("/all/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Campaigns getPartnerAds(@PathParam("id") String id) 
+	public Campaigns getPartnerAds(@PathParam("id") String id) throws Exception 
 	{
-		return campaignDB.get(id);
+		if(campaignDB.containsKey(id))  
+				return campaignDB.get(id);
+		else
+			throw new Exception ("No campaigns found");
 	}
 	
 	
