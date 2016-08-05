@@ -1,6 +1,30 @@
 David L. Adkins
 20160804
 
+Create a AWS Elastic Beanstalk
+1	 Initially you will want to create a single instance for testing.   When ready to go to production you will want upgrade to an auto scaling (load balancing) topography.
+2	Select Tomcat as your container of choice
+3	Once the instance is created you will need to upload generated war file using maven and stored in github. 
+4	 Service has been deployed to  http://comcastadserverelasticbeans-env.us-east-1.elasticbeanstalk.com/
+5	to add a new campaing POST to http://comcastadserverelasticbeans-env.us-east-1.elasticbeanstalk.com/ad
+a.	payload
+{
+  "partnerId":"acme",
+  "duration":300,
+  "adContent":"Acme first add content"
+}
+6	to view an active partner campaign created above navigate to:
+ http://comcastadserverelasticbeans-env.us-east-1.elasticbeanstalk.com/ad/acme
+a.	Response will be:		{"duration":300,"expired":false,"partnerId":"acme","adContent":"Acme first add content"}
+b.	If the campaign has expired, you will receive:
+
+
+7	To view all campaigns for a partner go to:
+http://comcastadserverelasticbeans-env.us-east-1.elasticbeanstalk.com/ad/all/acme
+
+
+
+
 If deploying to a remote Tomcat server using maven script please follow instructions found at:
 https://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
 
